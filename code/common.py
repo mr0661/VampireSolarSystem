@@ -45,7 +45,9 @@ class Content:
                 continue
 
             if context:
-                if context in self.content:
+                if context == SCRIPT:
+                    self.content[context] = [self.id + line]
+                elif context in self.content:
                     self.content[context].append(line)
                 else:
                     self.content[context] = [line]
@@ -60,7 +62,7 @@ class Content:
 
     def script(self):
         if self.get(SCRIPT):
-            return "\\" + self.id + self.get(SCRIPT)[0] + "{}"
+            return "\\" + self.get(SCRIPT)[0] + "{}"
         return ""
 
 def print_ability(content):
@@ -94,6 +96,7 @@ def write_result_file(contents, all_script, target_file):
     commands = []
     for content in contents:
         scripts.append(content.script())
+        print(content.script())
         commands.append(ENDLINE.join(content.template()))
     lines = [NEWCOMMAND_START.replace(SCRIPT, all_script)]
     for script in scripts:

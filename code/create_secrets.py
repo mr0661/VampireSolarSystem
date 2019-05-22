@@ -11,9 +11,9 @@ SCRIPT_ID = "secret"
 
 class Ability(Content):
     def __init__(self, file):
-        Content.__init__(self, file)
         self.template_name = SECRET_TEMPLATE
         self.id = SCRIPT_ID
+        Content.__init__(self, file)
 
     def template(self):
         return fill_template_lines(as_newcommand(read_file(self.template_name)), self.content)
