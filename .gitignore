@@ -244,3 +244,4 @@ TSWLatexianTemp*
 .idea/
 code/.idea/
 *__pycache__
+*.pdf
