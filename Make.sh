@@ -48,3 +48,14 @@ else
 	echo "Fail on 3rd pdflatex"
     exit $?
 fi
+
+rm -f *aux
+rm -f *dvi
+rm -f *log
+rm -f *toc
+rm -f *lof
+rm -f *lot
+rm -f *lol
+rm -f *bbl
+rm -f *blg
+rm -f *out

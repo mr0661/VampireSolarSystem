@@ -41,7 +41,7 @@ class Content:
             elif line[0] == ":":
                 context = line.lower()
                 continue
-            elif line[0] =="#":
+            elif line[0] == "#":
                 continue
 
             if context:
@@ -65,6 +65,9 @@ class Content:
             return "\\" + self.get(SCRIPT)[0] + "{}"
         return ""
 
+    def template(self):
+        return fill_template_lines(as_newcommand(read_file(self.template_name)), self.content)
+
 def print_ability(content):
     name = content.get(NAME)
     pool = content.get(POOL)
@@ -81,10 +84,14 @@ def fill_template_lines(template_lines, content):
     new_lines = []
     for line in template_lines:
         line = line.rstrip()
+        new_line = line
         for key, values in content.items():
             if values:
-                line = line.replace(key, " \\\\ ".join(values))
-        new_lines.append(line)
+                new_line = new_line.replace(key, " ".join(values))
+        if new_line and new_line != line and new_line[0] == "%":
+            new_line = new_line[1:]
+            print(new_line)
+        new_lines.append(new_line)
     return new_lines
 
 def fill_template(template, content):

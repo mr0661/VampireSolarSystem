@@ -1,18 +1,28 @@
 \documentclass[a4paper, 12pt, finnish]{article}
 
-\usepackage{babel}
-\usepackage{blindtext}
+\usepackage{bookman}
+\usepackage{calc}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
 \newcommand{\comment}[1]{}
 
 \begin{document}
 
+\newcommand{\nameSpacerG}[0]{\color{black}\Large{g}}
+\newcommand{\nameSpacer}[0]{\makebox[0pt][l]{\nameSpacerG}}
 
-\input{Abilities/ability_result.tex}
-\input{Keys/key_result.tex}
-\input{Secrets/secret_result.tex}
+\newcommand{\nameSize}[1]{\color{white}\small{ \textbf{#1}}}
+\newcommand{\nameCommand}[1]{\nameSpacer\nameSize{#1}}
+
+
+\input{Abilities/.ability_result.tex}
+\input{Keys/.key_result.tex}
+\input{Secrets/.secret_result.tex}
+
 
 \AllAbilities{}
 \AllSecrets{}
+\AllKeys{}
 
 \comment{
 \section{Termist\"o}

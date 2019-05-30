@@ -5,7 +5,7 @@ from common import *
 FILE_DIR = os.path.dirname(os.path.realpath(__file__))
 SECRET_FOLDER = FILE_DIR + "/../Secrets"
 SECRET_TEMPLATE = SECRET_FOLDER + "/secret_template.tex"
-SECRET_TARGET_FILE = SECRET_FOLDER + "/secret_result.tex"
+SECRET_TARGET_FILE = SECRET_FOLDER + "/.secret_result.tex"
 SCRIPT_ALL_SECRETS = "AllSecrets"
 SCRIPT_ID = "secret"
 
@@ -14,9 +14,6 @@ class Ability(Content):
         self.template_name = SECRET_TEMPLATE
         self.id = SCRIPT_ID
         Content.__init__(self, file)
-
-    def template(self):
-        return fill_template_lines(as_newcommand(read_file(self.template_name)), self.content)
 
 ability_paths = find_files(SECRET_FOLDER)
 print(ability_paths)
