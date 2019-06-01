@@ -1,4 +1,6 @@
 import os
+import re
+
 
 SCRIPT = ":script:"
 NAME = ":name:"
@@ -51,6 +53,9 @@ class Content:
                     self.content[context].append(line)
                 else:
                     self.content[context] = [line]
+        if not SCRIPT in self.content:
+            scriptName = self.id + self.file[(self.file.rfind("/") + 1):].replace("_", "").replace(" ", "")
+            self.content[SCRIPT] = [scriptName]
 
     def get(self, context):
         if not context in self.content:

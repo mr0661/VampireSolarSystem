@@ -1,0 +1,16 @@
+:name:
+Ranged combat
+
+:pool: 
+Vigor
+
+:p: 
+V
+
+:coretxt:
+This is used when fighting against opponent that uses ranged weapon.
+Ability is opposed when fighting with proper weapons, e.g. ranged weapon or with shield.
+Some other tools or situation might also produce opposed roll.
+It can also be used while wielding melee weapon but then roll is likely to be parallel and with penalty.
+It is also possible to use this simply to avoid an attack.
+

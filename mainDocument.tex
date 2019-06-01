@@ -4,6 +4,10 @@
 \usepackage{calc}
 \usepackage[utf8]{inputenc}
 \usepackage[table]{xcolor}
+\usepackage{chngpage}
+\usepackage{multicol}
+
+
 \newcommand{\comment}[1]{}
 
 \begin{document}
@@ -14,17 +18,39 @@
 \newcommand{\nameSize}[1]{\color{white}\small{ \textbf{#1}}}
 \newcommand{\nameCommand}[1]{\nameSpacer\nameSize{#1}}
 
+\newcommand{\emptyTable}[0]{
+\begin{minipage}[b]{5cm}
+\begin{center}
+\begin{tabular}{ p{5cm} } 
+ \
+\end{tabular}
+\end{center}
+\end{minipage} \hfill
+}
+
 
 \input{Abilities/.ability_result.tex}
 \input{Keys/.key_result.tex}
 \input{Secrets/.secret_result.tex}
 
+\begin{adjustwidth}{-1cm}{-1.5cm}
+\begin{multicols} {3}
 
 \AllAbilities{}
+\emptyTable{}
+\emptyTable{}
+\emptyTable{}
+\emptyTable{}
+\emptyTable{}
+\emptyTable{}
+\emptyTable{}
+
+\end{multicols}
+\end{adjustwidth}
+\comment{
+\AllSecrets{}
 \AllSecrets{}
 \AllKeys{}
-
-\comment{
 \section{Termist\"o}
 \section{Esittely}
 	\subsection{Kirjasta}

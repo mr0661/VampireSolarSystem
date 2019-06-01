@@ -1,0 +1,17 @@
+:name:
+Animal combat
+
+:pool: 
+Vigor
+
+:p: 
+V
+
+:coretxt:
+This is used when fighting against animal.
+Animal needs to act like normal animal with normal animal properties.
+For example, this works against wolfs, horses, dogs, cat, and ravens.
+It can be used also against something that attacks like an animal.
+If fighting against something that has unnatural abilities but attacks
+like animal skill can be used with penalty.
+
