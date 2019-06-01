@@ -5,11 +5,20 @@ import re
 SCRIPT = ":script:"
 NAME = ":name:"
 POOL = ":pool:"
+TAGS = ":tags:"
 POOL_SHORT = ":p:"
 CORE_TEXT = ":coretxt:"
-NEWCOMMAND_START="\\newcommand{\\" + SCRIPT + "}{";
+ALL_TAG = "All"
+NEWCOMMAND_START="\\newcommand{\\" +"%1"+ "}{";
 NEWCOMMAND_END="}";
 ENDLINE = "\n"
+
+def file_name(path):
+    return path[(path.rfind("/") + 1):]
+
+def file_base(path):
+    return path[(path.rfind("/") + 1): (path.rfind("."))]
+
 
 def find_files(path):
     all_files = []
@@ -22,13 +31,15 @@ def read_file(path):
     f = open(path, "r")
     return f.readlines()
 
-def as_newcommand(lines):
-    return [NEWCOMMAND_START] + lines + [NEWCOMMAND_END]
+def as_newcommand(lines, script = SCRIPT):
+    return [NEWCOMMAND_START.replace("%1", script)] + lines + [NEWCOMMAND_END]
+
 
 class Content:
     def __init__(self, file):
         print("create " + file)
         self.file = file
+        self.template_context = {}
         self.parse()
 
     def parse(self):
@@ -53,9 +64,17 @@ class Content:
                     self.content[context].append(line)
                 else:
                     self.content[context] = [line]
-        if not SCRIPT in self.content:
-            scriptName = self.id + self.file[(self.file.rfind("/") + 1):].replace("_", "").replace(" ", "")
-            self.content[SCRIPT] = [scriptName]
+        for template_name in self.template_names:
+            templateContext = ":" + file_base(template_name) + ":"
+            print(templateContext)
+            if not templateContext in self.content:
+                self.template_context[template_name] = templateContext
+                print("id:" , self.id)
+                print("file:" , file_name(self.file))
+                scriptName = self.id + file_name(self.file).replace("_", "").replace(" ", "")
+                self.content[templateContext] = [scriptName]
+                print("templateContext:", templateContext)
+                print("script:", scriptName)
 
     def get(self, context):
         if not context in self.content:
@@ -65,13 +84,23 @@ class Content:
     def template(self):
         return []
 
-    def script(self):
+    def script(self, target_template):
         if self.get(SCRIPT):
             return "\\" + self.get(SCRIPT)[0] + "{}"
         return ""
 
+    def templates(self):
+        templates = []
+        for template_name in self.template_names:
+            templates += file_base(template_name)
+        return templates;
+
     def template(self):
-        return fill_template_lines(as_newcommand(read_file(self.template_name)), self.content)
+        template = []
+        for template_name in self.template_names:
+            print("tempContext:" ,self.template_context[template_name])
+            template += fill_template_lines(as_newcommand(read_file(template_name), self.template_context[template_name]), self.content)
+        return template
 
 def print_ability(content):
     name = content.get(NAME)
@@ -103,20 +132,26 @@ def fill_template(template, content):
     lines = read_file(template)
     return fill_template_lines(lines, content)
 
-def write_result_file(contents, all_script, target_file):
-    scripts = []
+def write_result_file(contents, tag_script, target_file):
+    lines = []
     commands = []
+    tags = {ALL_TAG: []}
     for content in contents:
-        scripts.append(content.script())
-        print(content.script())
         commands.append(ENDLINE.join(content.template()))
-    lines = [NEWCOMMAND_START.replace(SCRIPT, all_script)]
-    for script in scripts:
-        lines.append(script)
-    lines.append(NEWCOMMAND_END)
+        #for tag in content.get(TAGS):
+        #    if not tag in tags:
+        #        tags[tag] = []
+        #    tags[tag].append(content.script())
+        #tags[ALL_TAG].append(content.script())
+    #for tag, scripts in tags.items():
+    #    lines.append(NEWCOMMAND_START.replace(SCRIPT, tag_script.replace("%1", tag)))
+    #    for script in scripts:
+    #        lines.append(script)
+    #    lines.append(NEWCOMMAND_END)
 
     for command in commands:
         lines.append(command)
 
     f = open(target_file, "w")
     f.write(ENDLINE.join(lines))
+    exit(-1)

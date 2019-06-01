@@ -1,13 +1,3 @@
-\newcommand{\AllAbilities}{
-\abilityMonsterCombat{}
-\abilityUnarmedCombat{}
-\abilityAnimalCombat{}
-\abilityDuel{}
-\abilityRangedCombat{}
-\abilityBattle{}
-\abilitybrawl{}
-\abilityCharm{}
-}
 \newcommand{\abilityMonsterCombat}{
 \begin{minipage}[b]{5cm}
 \tiny{
@@ -25,6 +15,9 @@ This is used when fighting against monsters e.g. vampires. Whenever facing unnat
 \end{center}
 }
 \end{minipage} %%\hspace{-10pt}
+}
+\newcommand{\abilityMonsterCombat}{
+Monster combat (V)
 }
 \newcommand{\abilityUnarmedCombat}{
 \begin{minipage}[b]{5cm}
@@ -44,6 +37,9 @@ This can only be used when your opponent does not have any weapon. It also requi
 }
 \end{minipage} %%\hspace{-10pt}
 }
+\newcommand{\abilityUnarmedCombat}{
+Unarmed combat (V)
+}
 \newcommand{\abilityAnimalCombat}{
 \begin{minipage}[b]{5cm}
 \tiny{
@@ -61,6 +57,9 @@ This is used when fighting against animal. Animal needs to act like normal anima
 \end{center}
 }
 \end{minipage} %%\hspace{-10pt}
+}
+\newcommand{\abilityAnimalCombat}{
+Animal combat (V)
 }
 \newcommand{\abilityDuel}{
 \begin{minipage}[b]{5cm}
@@ -80,6 +79,9 @@ Used when fighting in clear duel situation. This is used mainly to survive in su
 }
 \end{minipage} %%\hspace{-10pt}
 }
+\newcommand{\abilityDuel}{
+Duel (V)
+}
 \newcommand{\abilityRangedCombat}{
 \begin{minipage}[b]{5cm}
 \tiny{
@@ -97,6 +99,9 @@ This is used when fighting against opponent that uses ranged weapon. Ability is 
 \end{center}
 }
 \end{minipage} %%\hspace{-10pt}
+}
+\newcommand{\abilityRangedCombat}{
+Ranged combat (V)
 }
 \newcommand{\abilityBattle}{
 \begin{minipage}[b]{5cm}
@@ -116,7 +121,10 @@ Used when fighting with organized group. This is not for leading army, only part
 }
 \end{minipage} %%\hspace{-10pt}
 }
-\newcommand{\abilitybrawl}{
+\newcommand{\abilityBattle}{
+Battle (V)
+}
+\newcommand{\abilityBrawl}{
 \begin{minipage}[b]{5cm}
 \tiny{
 \begin{center}
@@ -134,6 +142,114 @@ Used when fighting in situation that has large group fighting without coorinatio
 }
 \end{minipage} %%\hspace{-10pt}
 }
+\newcommand{\abilityBrawl}{
+Brawl (V)
+}
+\newcommand{\abilityMemory}{
+\begin{minipage}[b]{5cm}
+\tiny{
+\begin{center}
+\begin{tabular}{ |p{5cm}| }
+\hline
+\rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Memory(R)}}
+\\
+\\[0pt]
+Memory is skill that many value. It is about recalling something. Used when it is not clear that someone could remember such detail. However, everything that is stated to happen is assumed to be in such importance, that characters remember them for rest of their lives. Memory can be used to bring interesting facts into the game. Player could ask that when new NPC is introduced to remember something about them. If they succeed, they remember, and such fact should be generated in a spot. For example, character might remember that same phrase was used by her nemesis and can now suspect that this character knows her nemesis.
+\\[0pt]
+\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+}
+\end{minipage} %%\hspace{-10pt}
+}
+\newcommand{\abilityMemory}{
+Memory (R)
+}
+\newcommand{\abilitySports}{
+\begin{minipage}[b]{5cm}
+\tiny{
+\begin{center}
+\begin{tabular}{ |p{5cm}| }
+\hline
+\rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Sports(V)}}
+\\
+\\[0pt]
+This used all manner of sport. It is about strenth possessed. Typically used in general athletic performances. This can be when swimming, sprinting, falling etc.
+\\[0pt]
+\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+}
+\end{minipage} %%\hspace{-10pt}
+}
+\newcommand{\abilitySports}{
+Sports (V)
+}
+\newcommand{\abilitySpeak}{
+\begin{minipage}[b]{5cm}
+\tiny{
+\begin{center}
+\begin{tabular}{ |p{5cm}| }
+\hline
+\rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Speak(R)}}
+\\
+\\[0pt]
+Speak is about explaining yourself. This can be used when you are arguing. Sometimes it takes a form of a inspiring speach. Speak is used when people are reasonable and are willing to listen for it. Witty banter can be in speak but is usually reserced for Charm and Deceit
+\\[0pt]
+\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+}
+\end{minipage} %%\hspace{-10pt}
+}
+\newcommand{\abilitySpeak}{
+Speak (R)
+}
+\newcommand{\abilityBarter}{
+\begin{minipage}[b]{5cm}
+\tiny{
+\begin{center}
+\begin{tabular}{ |p{5cm}| }
+\hline
+\rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Barter(I)}}
+\\
+\\[0pt]
+Bartering is something that every human has done. This is typically done when trying to buy something. It is both understanding value of something as it is to have someone to miss understand value. Though it is commonly used when purchasing goods, skilled barterer could convince bandits that he is more valuable alive than he is dead. Use this to acquire something.
+\\[0pt]
+\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+}
+\end{minipage} %%\hspace{-10pt}
+}
+\newcommand{\abilityBarter}{
+Barter (I)
+}
+\newcommand{\abilityDeceit}{
+\begin{minipage}[b]{5cm}
+\tiny{
+\begin{center}
+\begin{tabular}{ |p{5cm}| }
+\hline
+\rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Deceit(I)}}
+\\
+\\[0pt]
+Deceit is art of making people believe you. It is about creating impression that something is the truth. This archieved with many tricks, e.g. giving misleading information, lying, or telling the truth. Deceit does not necessary need to be about giving false information, though it is what most people use it. Sometimes it can be using weakness of mind against itself and help to person understand the reality. As the tricks are same, ability is the same.
+\\[0pt]
+\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+}
+\end{minipage} %%\hspace{-10pt}
+}
+\newcommand{\abilityDeceit}{
+Deceit (I)
+}
 \newcommand{\abilityCharm}{
 \begin{minipage}[b]{5cm}
 \tiny{
@@ -143,7 +259,7 @@ Used when fighting in situation that has large group fighting without coorinatio
 \rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Charm(I)}}
 \\
 \\[0pt]
-Charm is about being liked. This means making good first impressions and eventually friends. It is also about manipulation with subtle social means. Romantic conquest is also about Charm
+Charm is about being liked. This means making good first impressions and eventually friends. It is also about manipulation with subtle social means. Romantic conquests are also done with charm.
 \\[0pt]
 \\[0pt]
 \hline
@@ -151,4 +267,7 @@ Charm is about being liked. This means making good first impressions and eventua
 \end{center}
 }
 \end{minipage} %%\hspace{-10pt}
+}
+\newcommand{\abilityCharm}{
+Charm (I)
 }
