@@ -1,5 +1,5 @@
 import os
-import re
+import inspect
 
 
 SCRIPT = ":script:"
@@ -12,6 +12,13 @@ ALL_TAG = "All"
 NEWCOMMAND_START="\\newcommand{\\" +"%1"+ "}{";
 NEWCOMMAND_END="}";
 ENDLINE = "\n"
+
+def debug(*message):
+    m_str = ""
+    for m in message:
+        m_str += str(m)
+        m_str += " "
+    print ("D " + file_name(str(inspect.currentframe().f_back.f_code.co_filename)) + " " + str(inspect.currentframe().f_back.f_lineno).rjust(3) + ": " + m_str.strip())
 
 def file_name(path):
     return path[(path.rfind("/") + 1):]
@@ -37,7 +44,7 @@ def as_newcommand(lines, script = SCRIPT):
 
 class Content:
     def __init__(self, file):
-        print("create " + file)
+        debug("create " + file)
         self.file = file
         self.template_context = {}
         self.parse()
@@ -65,19 +72,19 @@ class Content:
                 else:
                     self.content[context] = [line]
         for template_name in self.template_names:
-            templateContext = ":" + file_base(template_name) + ":"
-            print(templateContext)
+            templateContext = ":" + file_base(template_name).lower() + ":"
+            debug(templateContext)
             if not templateContext in self.content:
                 self.template_context[template_name] = templateContext
-                print("id:" , self.id)
-                print("file:" , file_name(self.file))
-                scriptName = self.id + file_name(self.file).replace("_", "").replace(" ", "")
+                debug("id:" , self.id)
+                debug("file:" , file_name(self.file))
+                scriptName = file_base(template_name) + file_name(self.file).replace("_", "").replace(" ", "")
                 self.content[templateContext] = [scriptName]
-                print("templateContext:", templateContext)
-                print("script:", scriptName)
+                debug("templateContext:", templateContext)
+                debug("script:", scriptName)
 
     def get(self, context):
-        if not context in self.content:
+        if not context.lower() in self.content:
             return []
         return self.content[context.lower()]
 
@@ -85,20 +92,22 @@ class Content:
         return []
 
     def script(self, target_template):
-        if self.get(SCRIPT):
-            return "\\" + self.get(SCRIPT)[0] + "{}"
+        debug("target_template:", target_template)
+        tmp = ":" + target_template + ":"
+        if self.get(tmp):
+            return "\\" + self.get(tmp)[0] + "{}"
         return ""
 
     def templates(self):
         templates = []
         for template_name in self.template_names:
-            templates += file_base(template_name)
+            templates.append(file_base(template_name))
         return templates;
 
     def template(self):
         template = []
         for template_name in self.template_names:
-            print("tempContext:" ,self.template_context[template_name])
+            debug("tempContext:" ,self.template_context[template_name])
             template += fill_template_lines(as_newcommand(read_file(template_name), self.template_context[template_name]), self.content)
         return template
 
@@ -124,7 +133,7 @@ def fill_template_lines(template_lines, content):
                 new_line = new_line.replace(key, " ".join(values))
         if new_line and new_line != line and new_line[0] == "%":
             new_line = new_line[1:]
-            print(new_line)
+            debug(new_line)
         new_lines.append(new_line)
     return new_lines
 
@@ -135,23 +144,34 @@ def fill_template(template, content):
 def write_result_file(contents, tag_script, target_file):
     lines = []
     commands = []
+    collectionScripts = {}
     tags = {ALL_TAG: []}
     for content in contents:
         commands.append(ENDLINE.join(content.template()))
-        #for tag in content.get(TAGS):
-        #    if not tag in tags:
-        #        tags[tag] = []
-        #    tags[tag].append(content.script())
-        #tags[ALL_TAG].append(content.script())
-    #for tag, scripts in tags.items():
-    #    lines.append(NEWCOMMAND_START.replace(SCRIPT, tag_script.replace("%1", tag)))
-    #    for script in scripts:
-    #        lines.append(script)
-    #    lines.append(NEWCOMMAND_END)
+        for t in content.templates():
+            debug(t)
+            if not t in collectionScripts:
+                collectionScripts[t] = {}
+
+        for tag in content.get(TAGS):
+            if not tag in tags:
+                tags[tag] = []
+            tags[tag].append(content)
+        tags[ALL_TAG].append(content)
+    debug("collectionScript")
+    for collectionScript in collectionScripts:
+        debug(collectionScript)
+        for tag, contents in tags.items():
+            lines.append(NEWCOMMAND_START.replace("%1", tag + collectionScript))
+            debug("for", tag, collectionScript)
+            for content in contents:
+                debug("ContentName:", content.get(":name:"))
+                debug(content.get(":" + collectionScript + ":"))
+                lines.append(content.script(collectionScript))
+            lines.append(NEWCOMMAND_END)
 
     for command in commands:
         lines.append(command)
 
     f = open(target_file, "w")
     f.write(ENDLINE.join(lines))
-    exit(-1)
