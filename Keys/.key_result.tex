@@ -1,10 +1,18 @@
-\newcommand{\AllKeyName}{
-\KeyNameExampleKeyTwo{}
-\KeyNameExampleKey{}
-}
 \newcommand{\AllKey}{
 \KeyExampleKeyTwo{}
+\KeyHumanity{}
 \KeyExampleKey{}
+}
+\newcommand{\SpecialKey}{
+\KeyHumanity{}
+}
+\newcommand{\AllKeyName}{
+\KeyNameExampleKeyTwo{}
+\KeyNameHumanity{}
+\KeyNameExampleKey{}
+}
+\newcommand{\SpecialKeyName}{
+\KeyNameHumanity{}
 }
 \newcommand{\KeyExampleKeyTwo}{
 \begin{minipage}[b]{5cm}
@@ -39,6 +47,40 @@ Core text starts here Core text starts here Core text starts here
 }
 \newcommand{\KeyNameExampleKeyTwo}{
 My key 2
+}
+\newcommand{\KeyHumanity}{
+\begin{minipage}[b]{5cm}
+\tiny{
+\begin{center}
+\begin{tabular}{ |p{5cm}| }
+\hline
+\rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Key of Humanity}}
+\\
+\\[0pt]
+:description:
+\vspace{-1mm}
+\begin{itemize}
+\setlength\itemsep{-2pt}
+\item[1xp:] Resist temptation of braking principle
+%\item[2xp:] :xp2:
+\item[3xp:] Choose to follow your principle and it causes harm to you
+%\item[5xp:] :xp5:
+\item[buyoff:] Brake you principle without remorse
+\end{itemize}
+\\
+%\multicolumn{1}{|r p{4cm}|}{xp1: & cp1} %%& \multicolumn{1}{p{4cm}|}{Resist temptation of braking principle} \\
+%%\multicolumn{1}{|r}{xp2:} & \multicolumn{1}{l|}{:xp2:} \\
+%\multicolumn{1}{|r}{xp3:} & \multicolumn{1}{l|}{Choose to follow your principle and it causes harm to you} \\
+%%\multicolumn{1}{|r}{xp5:} & \multicolumn{1}{l|}{:xp5:} \\
+%\multicolumn{1}{|r}{buyoff:} & \multicolumn{1}{l|}{Brake you principle without remorse} \\
+\hline
+\end{tabular}
+\end{center}
+}
+\end{minipage}
+}
+\newcommand{\KeyNameHumanity}{
+Key of Humanity
 }
 \newcommand{\KeyExampleKey}{
 \begin{minipage}[b]{5cm}
