@@ -1,22 +1,46 @@
-\newcommand{\AllKey}{
-\KeyExampleKeyTwo{}
-\KeyHumanity{}
-\KeyExampleKey{}
-}
-\newcommand{\SpecialKey}{
-\KeyHumanity{}
-}
 \newcommand{\AllKeyName}{
 \KeyNameExampleKeyTwo{}
 \KeyNameHumanity{}
 \KeyNameExampleKey{}
+\KeyNameClan{}
+\KeyNameBloodlust{}
+\KeyNameBloodline{}
+\KeyNameSire{}
+\KeyNameBloodbond{}
+}
+\newcommand{\VampiricKeyName}{
+\KeyNameClan{}
+\KeyNameBloodlust{}
+\KeyNameBloodline{}
+\KeyNameSire{}
+\KeyNameBloodbond{}
 }
 \newcommand{\SpecialKeyName}{
 \KeyNameHumanity{}
 }
+\newcommand{\AllKey}{
+\KeyExampleKeyTwo{}
+\KeyHumanity{}
+\KeyExampleKey{}
+\KeyClan{}
+\KeyBloodlust{}
+\KeyBloodline{}
+\KeySire{}
+\KeyBloodbond{}
+}
+\newcommand{\VampiricKey}{
+\KeyClan{}
+\KeyBloodlust{}
+\KeyBloodline{}
+\KeySire{}
+\KeyBloodbond{}
+}
+\newcommand{\SpecialKey}{
+\KeyHumanity{}
+}
 \newcommand{\KeyExampleKeyTwo}{
 \begin{minipage}[b]{5cm}
-\tiny{
+\scriptsize{
 \begin{center}
 \begin{tabular}{ |p{5cm}| }
 \hline
@@ -24,7 +48,7 @@
 \\
 \\[0pt]
 Core text starts here Core text starts here Core text starts here
-\vspace{-1mm}
+\vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-2pt}
 \item[1xp:] Something minor
@@ -50,15 +74,15 @@ My key 2
 }
 \newcommand{\KeyHumanity}{
 \begin{minipage}[b]{5cm}
-\tiny{
+\scriptsize{
 \begin{center}
 \begin{tabular}{ |p{5cm}| }
 \hline
 \rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Key of Humanity}}
 \\
 \\[0pt]
-:description:
-\vspace{-1mm}
+Signifies fading humanity.
+\vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-2pt}
 \item[1xp:] Resist temptation of braking principle
@@ -84,7 +108,7 @@ Key of Humanity
 }
 \newcommand{\KeyExampleKey}{
 \begin{minipage}[b]{5cm}
-\tiny{
+\scriptsize{
 \begin{center}
 \begin{tabular}{ |p{5cm}| }
 \hline
@@ -92,7 +116,7 @@ Key of Humanity
 \\
 \\[0pt]
 Core text starts here Core text starts here Core text starts here
-\vspace{-1mm}
+\vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-2pt}
 \item[1xp:] Something minor
@@ -115,4 +139,174 @@ Core text starts here Core text starts here Core text starts here
 }
 \newcommand{\KeyNameExampleKey}{
 My key
+}
+\newcommand{\KeyClan}{
+\begin{minipage}[b]{5cm}
+\scriptsize{
+\begin{center}
+\begin{tabular}{ |p{5cm}| }
+\hline
+\rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Clan}}
+\\
+\\[0pt]
+The character has strong ties to the Clan
+\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-2pt}
+\item[1xp:] Express how importance of the Clan.
+\item[2xp:] Clan business causes problems for you.
+%\item[3xp:] :xp3:
+\item[5xp:] Advance inside hierarchy of the Clan
+\item[buyoff:] Denounce yourself from politics of the Clan
+\end{itemize}
+\\
+%\multicolumn{1}{|r p{4cm}|}{xp1: & cp1} %%& \multicolumn{1}{p{4cm}|}{Express how importance of the Clan.} \\
+%\multicolumn{1}{|r}{xp2:} & \multicolumn{1}{l|}{Clan business causes problems for you.} \\
+%%\multicolumn{1}{|r}{xp3:} & \multicolumn{1}{l|}{:xp3:} \\
+%\multicolumn{1}{|r}{xp5:} & \multicolumn{1}{l|}{Advance inside hierarchy of the Clan} \\
+%\multicolumn{1}{|r}{buyoff:} & \multicolumn{1}{l|}{Denounce yourself from politics of the Clan} \\
+\hline
+\end{tabular}
+\end{center}
+}
+\end{minipage}
+}
+\newcommand{\KeyNameClan}{
+Clan
+}
+\newcommand{\KeyBloodlust}{
+\begin{minipage}[b]{5cm}
+\scriptsize{
+\begin{center}
+\begin{tabular}{ |p{5cm}| }
+\hline
+\rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Blood bond}}
+\\
+\\[0pt]
+The character has been bonded to with blood to follow their will.
+\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-2pt}
+\item[1xp:] Blood bond affects your actions
+%\item[2xp:] :xp2:
+\item[3xp:] Perform services for your regent
+%\item[5xp:] :xp5:
+\item[buyoff:] Escape from the grip of the regent
+\end{itemize}
+\\
+%\multicolumn{1}{|r p{4cm}|}{xp1: & cp1} %%& \multicolumn{1}{p{4cm}|}{Blood bond affects your actions} \\
+%%\multicolumn{1}{|r}{xp2:} & \multicolumn{1}{l|}{:xp2:} \\
+%\multicolumn{1}{|r}{xp3:} & \multicolumn{1}{l|}{Perform services for your regent} \\
+%%\multicolumn{1}{|r}{xp5:} & \multicolumn{1}{l|}{:xp5:} \\
+%\multicolumn{1}{|r}{buyoff:} & \multicolumn{1}{l|}{Escape from the grip of the regent} \\
+\hline
+\end{tabular}
+\end{center}
+}
+\end{minipage}
+}
+\newcommand{\KeyNameBloodlust}{
+Blood bond
+}
+\newcommand{\KeyBloodline}{
+\begin{minipage}[b]{5cm}
+\scriptsize{
+\begin{center}
+\begin{tabular}{ |p{5cm}| }
+\hline
+\rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Bloodline}}
+\\
+\\[0pt]
+The character is forming their own bloodline
+\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-2pt}
+\item[1xp:] Express your superioirity
+\item[2xp:] You have to protect percieved purity of you line
+%\item[3xp:] :xp3:
+\item[5xp:] Your spawn gains power
+\item[buyoff:] Bow before your elders
+\end{itemize}
+\\
+%\multicolumn{1}{|r p{4cm}|}{xp1: & cp1} %%& \multicolumn{1}{p{4cm}|}{Express your superioirity} \\
+%\multicolumn{1}{|r}{xp2:} & \multicolumn{1}{l|}{You have to protect percieved purity of you line} \\
+%%\multicolumn{1}{|r}{xp3:} & \multicolumn{1}{l|}{:xp3:} \\
+%\multicolumn{1}{|r}{xp5:} & \multicolumn{1}{l|}{Your spawn gains power} \\
+%\multicolumn{1}{|r}{buyoff:} & \multicolumn{1}{l|}{Bow before your elders} \\
+\hline
+\end{tabular}
+\end{center}
+}
+\end{minipage}
+}
+\newcommand{\KeyNameBloodline}{
+Bloodline
+}
+\newcommand{\KeySire}{
+\begin{minipage}[b]{5cm}
+\scriptsize{
+\begin{center}
+\begin{tabular}{ |p{5cm}| }
+\hline
+\rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Sire}}
+\\
+\\[0pt]
+Character is devoted to its creator and creator is cruel master.
+\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-2pt}
+\item[1xp:] Sire is in the scene
+\item[2xp:] Sire misuses their powers over the character
+%\item[3xp:] :xp3:
+\item[5xp:] Sire causes injury.
+\item[buyoff:] Assault sire with intent of harming them
+\end{itemize}
+\\
+%\multicolumn{1}{|r p{4cm}|}{xp1: & cp1} %%& \multicolumn{1}{p{4cm}|}{Sire is in the scene} \\
+%\multicolumn{1}{|r}{xp2:} & \multicolumn{1}{l|}{Sire misuses their powers over the character} \\
+%%\multicolumn{1}{|r}{xp3:} & \multicolumn{1}{l|}{:xp3:} \\
+%\multicolumn{1}{|r}{xp5:} & \multicolumn{1}{l|}{Sire causes injury.} \\
+%\multicolumn{1}{|r}{buyoff:} & \multicolumn{1}{l|}{Assault sire with intent of harming them} \\
+\hline
+\end{tabular}
+\end{center}
+}
+\end{minipage}
+}
+\newcommand{\KeyNameSire}{
+Sire
+}
+\newcommand{\KeyBloodbond}{
+\begin{minipage}[b]{5cm}
+\scriptsize{
+\begin{center}
+\begin{tabular}{ |p{5cm}| }
+\hline
+\rowcolor{black}\multicolumn{1}{|c|}{\nameCommand{Bloodlust}}
+\\
+\\[0pt]
+The character craves blood. Common to newly made vampires.
+\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-2pt}
+\item[1xp:] Express your lust for warm blood
+%\item[2xp:] :xp2:
+\item[3xp:] Drink blood that is at least as delicios as warm human blood.
+%\item[5xp:] :xp5:
+\item[buyoff:] Drink animal blood
+\end{itemize}
+\\
+%\multicolumn{1}{|r p{4cm}|}{xp1: & cp1} %%& \multicolumn{1}{p{4cm}|}{Express your lust for warm blood} \\
+%%\multicolumn{1}{|r}{xp2:} & \multicolumn{1}{l|}{:xp2:} \\
+%\multicolumn{1}{|r}{xp3:} & \multicolumn{1}{l|}{Drink blood that is at least as delicios as warm human blood.} \\
+%%\multicolumn{1}{|r}{xp5:} & \multicolumn{1}{l|}{:xp5:} \\
+%\multicolumn{1}{|r}{buyoff:} & \multicolumn{1}{l|}{Drink animal blood} \\
+\hline
+\end{tabular}
+\end{center}
+}
+\end{minipage}
+}
+\newcommand{\KeyNameBloodbond}{
+Bloodlust
 }
