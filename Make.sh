@@ -1,5 +1,7 @@
 TARGET=mainDocument
+TARGET2=character_sheet
 TARGET_TEX=$TARGET.tex
+TARGET2_TEX=$TARGET2.tex
 
 python3 code/create_abilities.py
 if [ $? -eq 0 ]; then
@@ -46,6 +48,22 @@ if [ $? -eq 0 ]; then
     echo "Success 3rd pdflatex"
 else
 	echo "Fail on 3rd pdflatex"
+    exit $?
+fi
+
+pdflatex $TARGET2_TEX
+if [ $? -eq 0 ]; then
+    echo "Success 1st pdflatex character sheet"
+else
+	echo "Fail on 1st pdflatex character sheet"
+    exit $?
+fi
+
+pdflatex $TARGET2_TEX
+if [ $? -eq 0 ]; then
+    echo "Success 2nd pdflatex character sheet"
+else
+	echo "Fail on 2nd pdflatex character sheet"
     exit $?
 fi
 

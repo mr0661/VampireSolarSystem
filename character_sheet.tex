@@ -1,0 +1,253 @@
+\documentclass[a4paper, 12pt, finnish]{report}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{bookman}
+\usepackage{calc}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage{chngpage}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{amssymb}
+\usepackage{fontawesome}
+\usepackage{multirow}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+\setlength{\footskip}{100pt}
+
+\twocolumn
+
+\newcommand{\comment}[1]{}
+\begin{document}
+\pagestyle{empty}
+
+\begin{tabularx}{\columnwidth}{|X|} \hline
+    Name:  \\  \\ \hline
+    Concept: \\ \\ \hline
+    Age:  \\ \\ \hline
+\end{tabularx}
+
+
+\begin{tabular}{|p{4cm}| p{4cm}|} \hline
+\vspace{0.2cm}
+    {\scriptsize
+Key of Humanity:
+\begin{itemize}
+    \item[1xp:] Resist tempataion of braking a principle
+    \item[3xp:] Choose to follow your principle and it causes harm to you
+    \item[buyoff:] Break your principle without remorse
+\end{itemize}} 
+& 
+Principles:
+\begin{itemize}[leftmargin=0pt]
+    \item[] $\rule{4cm}{0.15mm}$
+    \item[] $\rule{4cm}{0.15mm}$
+    \item[] $\rule{4cm}{0.15mm}$
+    \item[] $\rule{4cm}{0.15mm}$
+    \item[] $\rule{4cm}{0.15mm}$
+    \item[] $\rule{4cm}{0.15mm}$
+\end{itemize} \vspace{-3mm}\\ \hline
+\end{tabular}
+
+\begin{tabularx}{\columnwidth}{|X|} \hline
+    Keys: 
+        {\scriptsize
+\begin{itemize}
+    \item[] 
+    \item[] 
+\end{itemize}
+$\rule{8cm}{0.15mm}$
+\begin{itemize}
+    \item[] 
+    \item[] 
+    \item[] 
+\end{itemize}
+$\rule{8cm}{0.15mm}$
+\begin{itemize}
+    \item[] 
+    \item[] 
+    \item[] 
+\end{itemize}
+$\rule{8cm}{0.15mm}$
+\begin{itemize}
+    \item[] 
+    \item[] 
+    \item[] 
+\end{itemize}
+$\rule{8cm}{0.15mm}$
+\begin{itemize}
+    \item[] 
+    \item[] 
+    \item[] 
+\end{itemize}
+} 
+\\
+\hline
+\end{tabularx}
+
+\begin{tabular}{|p{1.55cm}|p{3cm}|p{3cm}|} \hline
+    %\multicolumn{3}{|l|}{Progression:} \\
+    XP: & Advances & Advances\\ & left & used\\  &  & \\   &  & \\\hline 
+\end{tabular}
+
+%% POOLS %%
+\begin{tabular}{|p{1.55cm}|p{3cm}|p{3cm}|} \hline
+    \multicolumn{1}{|c|}{Pool} & \multicolumn{1}{c|}{Max} & \multicolumn{1}{c|}{Current} \\ \hline
+    \multicolumn{1}{|c|}{Vigor} & & \\[20pt] \hline
+    \multicolumn{1}{|c|}{Instinct} & & \\[20pt] \hline
+    \multicolumn{1}{|c|}{Reason} & & \\[20pt] \hline
+\end{tabular}
+
+\begin{tabular}{|p{1.55cm}|p{1cm}|p{5cm}|} \hline
+    \multicolumn{1}{|c|}{Level} & \multicolumn{1}{c|}{Type} & \multicolumn{1}{c|}{Effect} \\ \hline
+    \begin{tabular}{p{1cm}}
+         1. \faSquareO \\
+         2. \faSquareO \\
+         3. \faSquareO
+    \end{tabular} &
+    \begin{tabular}{p{0.6cm}}
+          \\ \hline
+          \\ \hline
+          \\ 
+    \end{tabular} &
+    \begin{tabular}{p{5cm}}
+    {\scriptsize \textbf{Bruised} 1 penalty die to next action. Cumulative if bruised multiple times in the same round.}
+    \end{tabular} \\ \hline 
+        \begin{tabular}{p{1cm}}
+         4. \faSquareO \\
+         5. \faSquareO
+    \end{tabular} &
+    \begin{tabular}{p{0.6cm}}
+          \\ \hline
+          \\ 
+    \end{tabular} &
+    \begin{tabular}{p{5cm}}
+    {\scriptsize \textbf{Wounded} 1 penalty die to all actions of harm type's pool.}
+    \end{tabular} \\ \hline 
+    \begin{tabular}{p{1cm}}
+         6. \faSquareO
+    \end{tabular} &
+    \begin{tabular}{p{0.6cm}}
+          \\ 
+    \end{tabular} &
+    \begin{tabular}{p{5cm}}
+    {\scriptsize \textbf{Broken} 1 penalty die. 1 pool cost.}
+    \end{tabular} \\ \hline 
+\end{tabular}
+
+
+{\scriptsize
+\begin{tabularx}{\columnwidth}{|X|X|} \hline
+    {\small Ability Ranks:}
+    \begin{itemize}[leftmargin=10pt] \setlength\itemsep{-2pt}
+    \item[3] Master
+    \item[2] Expert
+    \item[1] Competent
+    \item[0] Mediocre
+\end{itemize} &
+    {\small Success Level:}
+    \begin{itemize}[leftmargin=10pt] \setlength\itemsep{-2pt}
+    \item[6] Ultimate
+    \item[5] Legendary
+    \item[4] Amazing
+    \item[3] Great
+    \item[2] Good
+    \item[1] Marginal
+    \item[0] Failure
+\end{itemize} \\ \hline 
+\end{tabularx}
+}
+
+\begin{tabular}{|p{4cm}|p{4cm}|} \hline
+    Endure(V) & Vampiric \newline Strength(V) \\ \hline
+    React (I) & Vampiric \newline Mysticism(I) \\ \hline
+    Resist (R) & Vampiric \newline Mind control(R) \\ \hline
+     & \\[15pt] \hline
+     & \\[15pt] \hline
+     & \\[15pt] \hline
+     & \\[15pt] \hline
+     & \\[15pt] \hline
+     & \\[15pt] \hline
+     & \\[15pt] \hline
+     & \\[15pt] \hline
+     & \\[15pt] \hline
+\end{tabular}
+
+%% Secrets
+\begin{tabularx}{\columnwidth}{|X|} \hline
+    Secrets: 
+        {\scriptsize
+\begin{itemize}
+    \item[] 
+\end{itemize}
+$\rule{8cm}{0.15mm}$
+\begin{itemize}
+    \item[] 
+    \item[] 
+\end{itemize}
+$\rule{8cm}{0.15mm}$
+\begin{itemize}
+    \item[] 
+    \item[] 
+\end{itemize}
+$\rule{8cm}{0.15mm}$
+\begin{itemize}
+    \item[] 
+    \item[] 
+\end{itemize}
+$\rule{8cm}{0.15mm}$
+\begin{itemize}
+    \item[] 
+    \item[] 
+\end{itemize}
+$\rule{8cm}{0.15mm}$
+\begin{itemize}
+    \item[] 
+    \item[] 
+\end{itemize}
+$\rule{8cm}{0.15mm}$
+\begin{itemize}
+    \item[] 
+    \item[] 
+\end{itemize}
+$\rule{8cm}{0.15mm}$
+\begin{itemize}
+    \item[] 
+    \item[] 
+\end{itemize}
+} 
+\\
+\hline
+\end{tabularx}
+
+%%% EFFECTS (just a boks)
+\begin{tabularx}{\columnwidth}{|X|} \hline
+    Effects: 
+\vspace{270pt}
+\\
+\hline
+\end{tabularx}
+
+%%% Notes (just a boks)
+\begin{tabularx}{\columnwidth}{|X|} \hline
+    Notes: 
+\vspace{490pt}
+\\
+\hline
+\end{tabularx}
+
+%%% Advancement costs
+
+\begin{tabular}{|p{7cm}|p{1cm}|} \hline
+     Benefit & Cost \\[15pt] \hline
+     New ability at Mediocre & 0 \\[15pt] \hline
+     Mediocre ability to Competent & 1 \\[15pt] \hline
+     Competent ability to Expert & 2 \\[15pt] \hline
+     Expert ability to Master & 3 \\[15pt] \hline
+     Add 1 point to a single Pool \newline {\scriptsize for each full 10 points of Pool} & 1 \newline {\scriptsize +1} \\[0pt] \hline
+     Learn a new Secret & 1 \\[15pt] \hline
+     Add a new key & 1 \\[15pt] \hline
+\end{tabular}
+
+\end{document}
+
