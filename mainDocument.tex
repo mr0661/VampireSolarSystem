@@ -1,17 +1,22 @@
-\documentclass[a4paper, 12pt, finnish]{report}
+\documentclass[a4paper, 12pt, finnish]{article}
 
 \usepackage{bookman}
 \usepackage{calc}
+\usepackage[]{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[table]{xcolor}
 \usepackage{chngpage}
 \usepackage{multicol}
 \usepackage{enumitem}
 
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
 
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 \setlength{\footskip}{100pt}
+
 
 \newcommand{\comment}[1]{}
 
@@ -40,11 +45,11 @@
 \end{multicols}
 \end{adjustwidth}
 }
-
+\input{terms.tex}
 \input{Abilities/.ability_result.tex}
 \input{Keys/.key_result.tex}
 \input{Secrets/.secret_result.tex}
-
+\comment{
 %% ABILITIES %%
 
 \textbf{Passive abilities:}
@@ -202,6 +207,8 @@ If all principles are lost, vampire loses its mind.
 As more and more principles are lost vampire becomes more obsessive on the remaining ones.
 It is possible to develop other principles but whenever principle is lost it cannot be replaced.
 
+
+% OTA uusi "vampiric curse"
 \begin{itemize}
 \setlength\itemsep{-2pt}
 \item[7] normal vampiric curses still apply
@@ -213,11 +220,11 @@ It is possible to develop other principles but whenever principle is lost it can
 \item[1] you cannot spend Vigor anymore to appear as a human.
 \end{itemize}
 
+% kerrallaan saa olla enintään kolme, toimivat kuin avaimet, mutta ilmaisia
 Example principles are:
 \begin{itemize}
 \setlength\itemsep{-2pt}
 \item Kindness towards others
-
 \item Do onto others as you would have them to do to you
 \item Justice and fairness
 \item Right of everyone to decide their own fate
@@ -272,22 +279,67 @@ Pools are normal, expect for refershing condition:
 \item[\textbf{Instinct}] Hunt for blood in social setting or interact with your kind in social setting.
 \item[\textbf{Reason}] Try to understand your existence. Alternatively, drink blood in intellectually stimulating interaction such as poetry recital, a late-night philosophical debate or a chess match.
 \end{itemize}
+}
 
+\tableofcontents
+\pagebreak
+
+\section{Terms}\label{sec:terms}
+\section{Introduction}\label{sec:introduction}
+	\subsection{About this book}\label{ssec:about}
+		\input{about.tex}
+	\subsection{Roleplaying}\label{ssec:roleplaying}
+		\input{roleplaying.tex}
+	\subsection{Vampires}\label{ssec:vampires}
+		\input{vampires_introduction.tex}
+\section{System}\label{sec:System}
+	\subsection{Overview}\label{ssec:overview}
+		\input{system_overview.tex}
+	\subsection{Abilities}\label{ssec:abilities}
+		\input{system_abilities.tex}
+	\subsection{Pools}\label{ssec:pools}
+		\input{system_pools.tex}
+	\subsection{Keys}\label{ssec:keys}
+		\input{system_keys.tex}
+	\subsection{Secrets}\label{ssec:secrets}
+		\input{system_secrets.tex}
+	\subsection{Challenges}\label{ssec:challenges} % Tämä on perus tilanteisiin joissa heitetään noppaa
+		\input{system_challenges.tex}
+	\subsection{Conflict}\label{ssec:conflict} % myös extended
+		\input{system_conflict.tex}
+\section{Character}
+	\subsection{Character creation}\label{ssec:creation}
+		\input{character_creation.tex}
+	\subsection{Mortal}\label{ssec:mortal}
+		\input{character_mortal.tex}
+	\subsection{Vampire}\label{ssec:vampire} % Vampiric keys(mandatory), Humanity and curses(nämä linkataa valittaessa yhteen)
+		\input{character_vampire.tex}
+	\subsection{Elder}\label{ssec:elder} % Vampyyri, joka on niin muinainen, että ei voi esittää samanlaisena kuin tavallisen, esim. 
+		\input{character_elder_vampire.tex}
+	\subsection{Thrall}\label{ssec:thrall}
+		\input{character_thralls.tex}
+	\subsection{Hunter}\label{ssec:hunter}
+		\input{character_hunters.tex}
+\section{World}
+	\subsection{Vampirec curses} \label{ssec:curses} % choose mandatory curses
+		\input{world_curses.tex}
+	\subsection{Vampiric world} \label{ssec:vampire_world}
+		\input{world_vampires.tex}
 
 \comment{
 %\AllSecrets{}
 
 \begin{adjustwidth}{-1.25cm}{-1.25cm}
 \begin{multicols} {3}
-\AllSecret{}
-\AllKey{}
+%\AllSecret{}
+%\AllKey{}
 \end{multicols}
 \end{adjustwidth}
 \section{Termist\"o}
 \section{Esittely}
 	\subsection{Kirjasta}
 		\blindtext
-	\subsection{Vampyyreista}
+	\subsection{Vampyyreista} % Vampiric curses, secrets
 		\blindtext
 	\subsection{Roolipelaamisesta}
 		\blindtext
@@ -296,16 +348,22 @@ Pools are normal, expect for refershing condition:
 \section{Maailma}
 	\subsection{Vampyyrien merkitys}
 	\subsection{Vampyyrien ominaisuudet}
+	\subsection{Vampyyri mytologian luonti}
+\section{Pelaaminen}
+	\subsection{Yleiskuva}
+	\subsection{Pelin kulku}
+	\subsection{Kyvyt}
+	\subsection{Avaimet}
+	\subsection{Salaisuudet}
+	\subsection{Kykytesti}
+	\subsection{Konflikti}
 \section{Hahmo}
-	\subsection{Hahmotyypit}
-		\subsubsection{Vampyyri}
-		\subsubsection{Kuolevainen}
-		\subsubsection{Orja(Thrall)}
+	\subsubsection{Perus Kuolevainen}
+	\subsubsection{Vampyyri}
+	\subsubsection{Vanha vampyyri}
+	\subsubsection{Muinainen vampyyri}
+	\subsubsection{Orja(Thrall) ja Metsästäjä}
 	\subsection{Hahmolomake}
-		\subsubsection{kyvyt (abilities)}
-		\subsubsection{altaat (Pool \& Pool refreshment)}
-		\subsubsection{avaimet (keys)}
-		\subsubsection{salaisuudet (secret)}
 	\subsection{Hahmonluonti}
 \section{Pelisessio}
 	\subsection{Kykytesti}
@@ -339,3 +397,4 @@ Pools are normal, expect for refershing condition:
 }
 \end{document}
 
+\newcommand{\topic}[1]{}
