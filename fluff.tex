@@ -1,0 +1,62 @@
+\documentclass[a4paper, 12pt, finnish]{article}
+
+\usepackage{bookman}
+\usepackage{calc}
+\usepackage[]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage{chngpage}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage[margin=3cm]{geometry}
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+\setlength{\footskip}{100pt}
+
+
+\newcommand{\comment}[1]{}
+
+\begin{document}
+
+\newcommand{\nameSpacerG}[0]{\color{black}\Large{g}}
+\newcommand{\nameSpacer}[0]{\makebox[0pt][l]{\nameSpacerG}}
+
+\newcommand{\nameSize}[1]{\color{white}\small{ \textbf{#1}}}
+\newcommand{\nameCommand}[1]{\nameSpacer\nameSize{#1}}
+
+\newcommand{\emptyTable}[0]{
+\begin{minipage}[b]{5cm}
+\begin{center}
+\begin{tabular}{ p{5cm} } 
+ \
+\end{tabular}
+\end{center}
+\end{minipage} \hfill
+}
+
+\newcommand{\cols}[1]{
+\begin{adjustwidth}{-1.25cm}{-1.25cm}
+\begin{multicols} {3}
+#1
+\end{multicols}
+\end{adjustwidth}
+}
+\input{terms.tex}
+\input{Abilities/.ability_result.tex}
+\input{Keys/.key_result.tex}
+\input{Secrets/.secret_result.tex}
+\section{Keys}
+\cols{\AllKey}
+\pagebreak
+\section{Secrets}
+\cols{\AllSecret}
+\pagebreak
+\section{Abilities}
+\cols{\AllAbility}
+
+\end{document}

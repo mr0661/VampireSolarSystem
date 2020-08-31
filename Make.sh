@@ -1,71 +1,36 @@
-TARGET=mainDocument
-TARGET2=character_sheet
-TARGET_TEX=$TARGET.tex
-TARGET2_TEX=$TARGET2.tex
+INPUT1=mainDocument
+INPUT2=character_sheet
+INPUT3=fluff
 
-python3 code/create_abilities.py
-if [ $? -eq 0 ]; then
-    echo "Success (create_abilities.py)" 
-else
-	echo "Fail on create_abilities.py"
-    exit $?
-fi
+RUN()
+{
+	COMMAND=$1
+	TARGET=$2
+	EXTRA_COMMENT=$3
+	eval $COMMAND $TARGET > log.txt
+	if [ $? -eq 0 ]; then
+		echo "Success $TARGET $EXTRA_COMMENT" 
+		rm log.txt
+	else
+		echo "Fail on $TARGET $EXTRA_COMMENT"
+		exit $?
+	fi
+}
 
-python3 code/create_keys.py
-if [ $? -eq 0 ]; then
-    echo "Success (create_keys.py)" 
-else
-	echo "Fail on create_keys.py"
-    exit $?
-fi
+LATEX()
+{
+	TARGET=$1.tex
+	RUN pdflatex $TARGET 1st
+	RUN pdflatex $TARGET 2nd
+}
 
-python3 code/create_secrets.py
-if [ $? -eq 0 ]; then
-    echo "Success (create_secrets.py)"
-else
-	echo "Fail on create_secrets.py"
-    exit $?
-fi
+RUN python3 code/create_abilities.py
+RUN python3 code/create_keys.py
+RUN python3 code/create_secrets.py
 
-pdflatex $TARGET_TEX
-if [ $? -eq 0 ]; then
-    echo "Success 1st pdflatex"
-else
-	echo "Fail on 1st pdflatex"
-    exit $?
-fi
-
-pdflatex $TARGET_TEX
-if [ $? -eq 0 ]; then
-    echo "Success 2nd pdflatex"
-else
-	echo "Fail on 2nd pdflatex"
-    exit $?
-fi
-
-pdflatex $TARGET_TEX
-if [ $? -eq 0 ]; then
-    echo "Success 3rd pdflatex"
-else
-	echo "Fail on 3rd pdflatex"
-    exit $?
-fi
-
-pdflatex $TARGET2_TEX
-if [ $? -eq 0 ]; then
-    echo "Success 1st pdflatex character sheet"
-else
-	echo "Fail on 1st pdflatex character sheet"
-    exit $?
-fi
-
-pdflatex $TARGET2_TEX
-if [ $? -eq 0 ]; then
-    echo "Success 2nd pdflatex character sheet"
-else
-	echo "Fail on 2nd pdflatex character sheet"
-    exit $?
-fi
+LATEX $INPUT1
+LATEX $INPUT2
+LATEX $INPUT3
 
 rm -f *aux
 rm -f *dvi
