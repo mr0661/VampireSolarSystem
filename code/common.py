@@ -49,6 +49,12 @@ class Content:
         self.template_context = {}
         self.parse()
 
+    def __lt__(self, other):
+        return self.file < other.file
+
+    def __eq__(self, other):
+        return self.file == other.file
+
     def parse(self):
         self.content = {}
         lines = read_file(self.file)

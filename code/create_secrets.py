@@ -22,5 +22,5 @@ abilities = []
 for ability_path in ability_paths:
     if ability_path != SECRET_TEMPLATE and ability_path != SECRET_TARGET_FILE and ability_path != SECRET_NAME_TEMPLATE:
         abilities.append(Ability(ability_path))
-
+abilities.sort()
 write_result_file(abilities, SCRIPT_TAG_SECRETS, SECRET_TARGET_FILE)

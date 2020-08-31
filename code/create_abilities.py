@@ -26,5 +26,5 @@ for ability_path in ability_paths:
        ability_path != ABILTY_TARGET_FILE and \
        ability_path != ABILITY_NAME_TEMPLATE:
         abilities.append(Ability(ability_path))
-
+abilities.sort()
 write_result_file(abilities , SCRIPT_TAG_ABILITIES, ABILTY_TARGET_FILE)
