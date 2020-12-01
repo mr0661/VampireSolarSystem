@@ -7,7 +7,7 @@ RUN()
 	COMMAND=$1
 	TARGET=$2
 	EXTRA_COMMENT=$3
-	eval $COMMAND $TARGET > log.txt
+	eval timeout 5s $COMMAND $TARGET > log.txt
 	if [ $? -eq 0 ]; then
 		echo "Success $TARGET $EXTRA_COMMENT" 
 		rm log.txt
