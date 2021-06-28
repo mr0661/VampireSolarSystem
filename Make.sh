@@ -23,7 +23,20 @@ LATEX()
 	RUN pdflatex $TARGET 1st
 	RUN pdflatex $TARGET 2nd
 }
-
+CLEAN()
+{
+	rm -f *.aux
+	rm -f *.dvi
+	rm -f *.log
+	rm -f *.toc
+	rm -f *.lof
+	rm -f *.lot
+	rm -f *.lol
+	rm -f *.bbl
+	rm -f *.blg
+	rm -f *.out
+}
+CLEAN
 RUN python3 code/create_abilities.py
 RUN python3 code/create_keys.py
 RUN python3 code/create_secrets.py
@@ -32,13 +45,4 @@ LATEX $INPUT1
 LATEX $INPUT2
 LATEX $INPUT3
 
-rm -f *aux
-rm -f *dvi
-rm -f *log
-rm -f *toc
-rm -f *lof
-rm -f *lot
-rm -f *lol
-rm -f *bbl
-rm -f *blg
-rm -f *out
+CLEAN
