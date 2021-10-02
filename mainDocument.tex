@@ -8,15 +8,19 @@
 \usepackage{chngpage}
 \usepackage{multicol}
 \usepackage{enumitem}
+\usepackage{xstring}
 
 \usepackage[english]{babel}
 \usepackage{blindtext}
-
+\usepackage{catchfile}
 
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 \setlength{\footskip}{100pt}
-
+\CatchFileDef{\HEAD}{.git/refs/heads/master}{}
+\newcommand{\gitrevision}{%
+  \StrLeft{\HEAD}{7}%
+}
 
 \newcommand{\comment}[1]{}
 
@@ -27,6 +31,8 @@
 
 \newcommand{\nameSize}[1]{\color{white}\small{ \textbf{#1}}}
 \newcommand{\nameCommand}[1]{\nameSpacer\nameSize{#1}}
+
+\newcommand{\para}[1]{\paragraph{#1}\mbox{}\\}
 
 \newcommand{\emptyTable}[0]{
 \begin{minipage}[b]{5cm}
@@ -49,6 +55,12 @@
 \input{Abilities/.ability_result.tex}
 \input{Keys/.key_result.tex}
 \input{Secrets/.secret_result.tex}
+
+
+\title{\ThisBook}
+\author{Ossi Noita}
+\date{\today{} (\gitrevision)}
+
 \comment{
 %% ABILITIES %%
 
@@ -281,6 +293,12 @@ Pools are normal, expect for refershing condition:
 \end{itemize}
 }
 
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+
+\pagebreak
 \tableofcontents
 \pagebreak
 
@@ -301,12 +319,12 @@ Pools are normal, expect for refershing condition:
 		\input{system_abilities.tex}
 	\subsection{Pools}\label{ssec:pools}
 		\input{system_pools.tex}
-	\subsection{Secrets}\label{ssec:secrets}
-		\input{system_secrets.tex}
 	\subsection{Challenges}\label{ssec:challenges} % Tämä on perus tilanteisiin joissa heitetään noppaa
 		\input{system_challenges.tex}
 	\subsection{Conflict}\label{ssec:conflict} % myös extended
 		\input{system_conflict.tex}
+	\subsection{Secrets}\label{ssec:secrets}
+		\input{system_secrets.tex}
 \section{Character}
 	\subsection{Character creation}\label{ssec:creation}
 		\input{character_creation.tex}
